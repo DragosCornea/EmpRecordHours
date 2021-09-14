@@ -63,7 +63,6 @@ namespace FinalProject
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.CheckInTb = new System.Windows.Forms.TextBox();
             this.CheckOutTb = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -408,11 +407,6 @@ namespace FinalProject
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // timer2
-            // 
-            this.timer2.Interval = 1000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
             // CheckInTb
             // 
             this.CheckInTb.Location = new System.Drawing.Point(734, 54);
@@ -485,7 +479,6 @@ namespace FinalProject
         private System.Windows.Forms.Button CheckInBtn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.TextBox CheckOutTb;
         private System.Windows.Forms.TextBox CheckInTb;
     }

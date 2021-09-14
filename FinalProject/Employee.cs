@@ -143,11 +143,6 @@ namespace FinalProject
    
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            MessageBox.Show("Checked Out from Work");
-        }
-
         private void CheckInBtn_Click(object sender, EventArgs e)
         {
             timer1.Enabled = true;
@@ -156,7 +151,7 @@ namespace FinalProject
 
         private void CheckOutBtn_Click(object sender, EventArgs e)
         {
-            timer2.Stop();
+            timer1.Stop();
         }
     }
 }
