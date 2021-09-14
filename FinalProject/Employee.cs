@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
+
 namespace FinalProject
 {
     public partial class Employee : Form
@@ -126,6 +127,36 @@ namespace FinalProject
             Home home = new Home();
             home.Show();
             this.Hide();
+        }
+        int duration = 0;// durata in secunde
+        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            duration++;// incrementam durata pt timer
+            TimeSpan t = TimeSpan.FromSeconds(duration);// ne folosim de constructorul timespan pt formatul de h/m/s
+
+            string answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s",
+                            t.Hours,
+                            t.Minutes,
+                            t.Seconds);
+            CheckInTb.Text = answer.ToString();//salvam in variabila locala answer formatul 
+   
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Checked Out from Work");
+        }
+
+        private void CheckInBtn_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+            timer1.Start();
+        }
+
+        private void CheckOutBtn_Click(object sender, EventArgs e)
+        {
+            timer2.Stop();
         }
     }
 }

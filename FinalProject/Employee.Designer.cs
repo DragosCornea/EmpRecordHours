@@ -29,9 +29,14 @@ namespace FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CheckOutBtn = new System.Windows.Forms.Button();
+            this.CheckInBtn = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.EmpGateCb = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.EmpAddCb = new System.Windows.Forms.ComboBox();
@@ -57,6 +62,10 @@ namespace FinalProject
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.CheckInTb = new System.Windows.Forms.TextBox();
+            this.CheckOutTb = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmpDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -74,6 +83,12 @@ namespace FinalProject
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.CheckOutTb);
+            this.panel1.Controls.Add(this.CheckInTb);
+            this.panel1.Controls.Add(this.CheckOutBtn);
+            this.panel1.Controls.Add(this.CheckInBtn);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.EmpGateCb);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.EmpAddCb);
@@ -99,8 +114,46 @@ namespace FinalProject
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(-1, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 331);
+            this.panel1.Size = new System.Drawing.Size(1311, 589);
             this.panel1.TabIndex = 1;
+            // 
+            // CheckOutBtn
+            // 
+            this.CheckOutBtn.Location = new System.Drawing.Point(643, 101);
+            this.CheckOutBtn.Name = "CheckOutBtn";
+            this.CheckOutBtn.Size = new System.Drawing.Size(75, 23);
+            this.CheckOutBtn.TabIndex = 33;
+            this.CheckOutBtn.Text = "Check Out";
+            this.CheckOutBtn.UseVisualStyleBackColor = true;
+            this.CheckOutBtn.Click += new System.EventHandler(this.CheckOutBtn_Click);
+            // 
+            // CheckInBtn
+            // 
+            this.CheckInBtn.Location = new System.Drawing.Point(643, 52);
+            this.CheckInBtn.Name = "CheckInBtn";
+            this.CheckInBtn.Size = new System.Drawing.Size(75, 23);
+            this.CheckInBtn.TabIndex = 32;
+            this.CheckInBtn.Text = "Check In";
+            this.CheckInBtn.UseVisualStyleBackColor = true;
+            this.CheckInBtn.Click += new System.EventHandler(this.CheckInBtn_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(867, 57);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 13);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Seconds";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(867, 106);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 13);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Seconds";
             // 
             // EmpGateCb
             // 
@@ -109,7 +162,7 @@ namespace FinalProject
             "Gate1",
             "Gate2",
             "Gate3"});
-            this.EmpGateCb.Location = new System.Drawing.Point(178, 92);
+            this.EmpGateCb.Location = new System.Drawing.Point(505, 92);
             this.EmpGateCb.Name = "EmpGateCb";
             this.EmpGateCb.Size = new System.Drawing.Size(90, 21);
             this.EmpGateCb.TabIndex = 29;
@@ -117,7 +170,7 @@ namespace FinalProject
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(207, 76);
+            this.label11.Location = new System.Drawing.Point(535, 76);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 13);
             this.label11.TabIndex = 28;
@@ -154,11 +207,11 @@ namespace FinalProject
             this.EmpDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.EmpDGV.EnableHeadersVisualStyles = false;
             this.EmpDGV.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.EmpDGV.Location = new System.Drawing.Point(305, 14);
+            this.EmpDGV.Location = new System.Drawing.Point(31, 343);
             this.EmpDGV.Name = "EmpDGV";
             this.EmpDGV.RowHeadersVisible = false;
             this.EmpDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.EmpDGV.Size = new System.Drawing.Size(520, 301);
+            this.EmpDGV.Size = new System.Drawing.Size(1258, 227);
             this.EmpDGV.TabIndex = 26;
             this.EmpDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EmpDGV_CellContentClick);
             // 
@@ -350,12 +403,36 @@ namespace FinalProject
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // CheckInTb
+            // 
+            this.CheckInTb.Location = new System.Drawing.Point(734, 54);
+            this.CheckInTb.Name = "CheckInTb";
+            this.CheckInTb.Size = new System.Drawing.Size(112, 20);
+            this.CheckInTb.TabIndex = 34;
+            // 
+            // CheckOutTb
+            // 
+            this.CheckOutTb.Location = new System.Drawing.Point(734, 101);
+            this.CheckOutTb.Name = "CheckOutTb";
+            this.CheckOutTb.Size = new System.Drawing.Size(112, 20);
+            this.CheckOutTb.TabIndex = 35;
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(836, 400);
+            this.ClientSize = new System.Drawing.Size(1340, 682);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
@@ -403,5 +480,13 @@ namespace FinalProject
         private System.Windows.Forms.ComboBox EmpAddCb;
         private System.Windows.Forms.ComboBox EmpGateCb;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button CheckOutBtn;
+        private System.Windows.Forms.Button CheckInBtn;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.TextBox CheckOutTb;
+        private System.Windows.Forms.TextBox CheckInTb;
     }
 }

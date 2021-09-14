@@ -29,8 +29,20 @@ namespace FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewEmployee));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.empidTb = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.empdoblbl = new System.Windows.Forms.Label();
+            this.empgenlbl = new System.Windows.Forms.Label();
+            this.empedulbl = new System.Windows.Forms.Label();
+            this.empnamelbl = new System.Windows.Forms.Label();
+            this.empphonelbl = new System.Windows.Forms.Label();
+            this.empposlbl = new System.Windows.Forms.Label();
+            this.empaddlbl = new System.Windows.Forms.Label();
+            this.empidlbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -42,17 +54,7 @@ namespace FinalProject
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.empphonelbl = new System.Windows.Forms.Label();
-            this.empposlbl = new System.Windows.Forms.Label();
-            this.empaddlbl = new System.Windows.Forms.Label();
-            this.empidlbl = new System.Windows.Forms.Label();
-            this.empdoblbl = new System.Windows.Forms.Label();
-            this.empgenlbl = new System.Windows.Forms.Label();
-            this.empedulbl = new System.Windows.Forms.Label();
-            this.empnamelbl = new System.Windows.Forms.Label();
-            this.empidTb = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +86,120 @@ namespace FinalProject
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(818, 354);
             this.panel1.TabIndex = 2;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(437, 34);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 35;
+            this.button5.Text = "Refresh";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // empidTb
+            // 
+            this.empidTb.Location = new System.Drawing.Point(315, 34);
+            this.empidTb.Name = "empidTb";
+            this.empidTb.Size = new System.Drawing.Size(100, 20);
+            this.empidTb.TabIndex = 34;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(245, 37);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 13);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "EmployeeID";
+            // 
+            // empdoblbl
+            // 
+            this.empdoblbl.AutoSize = true;
+            this.empdoblbl.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.empdoblbl.Location = new System.Drawing.Point(621, 189);
+            this.empdoblbl.Name = "empdoblbl";
+            this.empdoblbl.Size = new System.Drawing.Size(79, 13);
+            this.empdoblbl.TabIndex = 32;
+            this.empdoblbl.Text = "Employee DOB";
+            this.empdoblbl.Visible = false;
+            // 
+            // empgenlbl
+            // 
+            this.empgenlbl.AutoSize = true;
+            this.empgenlbl.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.empgenlbl.Location = new System.Drawing.Point(619, 135);
+            this.empgenlbl.Name = "empgenlbl";
+            this.empgenlbl.Size = new System.Drawing.Size(91, 13);
+            this.empgenlbl.TabIndex = 31;
+            this.empgenlbl.Text = "Employee Gender";
+            this.empgenlbl.Visible = false;
+            // 
+            // empedulbl
+            // 
+            this.empedulbl.AutoSize = true;
+            this.empedulbl.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.empedulbl.Location = new System.Drawing.Point(619, 226);
+            this.empedulbl.Name = "empedulbl";
+            this.empedulbl.Size = new System.Drawing.Size(104, 13);
+            this.empedulbl.TabIndex = 30;
+            this.empedulbl.Text = "Employee Education";
+            this.empedulbl.Visible = false;
+            // 
+            // empnamelbl
+            // 
+            this.empnamelbl.AutoSize = true;
+            this.empnamelbl.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.empnamelbl.Location = new System.Drawing.Point(619, 89);
+            this.empnamelbl.Name = "empnamelbl";
+            this.empnamelbl.Size = new System.Drawing.Size(81, 13);
+            this.empnamelbl.TabIndex = 29;
+            this.empnamelbl.Text = "EmployeeName";
+            this.empnamelbl.Visible = false;
+            // 
+            // empphonelbl
+            // 
+            this.empphonelbl.AutoSize = true;
+            this.empphonelbl.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.empphonelbl.Location = new System.Drawing.Point(148, 238);
+            this.empphonelbl.Name = "empphonelbl";
+            this.empphonelbl.Size = new System.Drawing.Size(87, 13);
+            this.empphonelbl.TabIndex = 28;
+            this.empphonelbl.Text = "Employee Phone";
+            this.empphonelbl.Visible = false;
+            // 
+            // empposlbl
+            // 
+            this.empposlbl.AutoSize = true;
+            this.empposlbl.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.empposlbl.Location = new System.Drawing.Point(148, 189);
+            this.empposlbl.Name = "empposlbl";
+            this.empposlbl.Size = new System.Drawing.Size(93, 13);
+            this.empposlbl.TabIndex = 27;
+            this.empposlbl.Text = "Employee Position";
+            this.empposlbl.Visible = false;
+            // 
+            // empaddlbl
+            // 
+            this.empaddlbl.AutoSize = true;
+            this.empaddlbl.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.empaddlbl.Location = new System.Drawing.Point(147, 135);
+            this.empaddlbl.Name = "empaddlbl";
+            this.empaddlbl.Size = new System.Drawing.Size(45, 13);
+            this.empaddlbl.TabIndex = 26;
+            this.empaddlbl.Text = "Address";
+            this.empaddlbl.Visible = false;
+            // 
+            // empidlbl
+            // 
+            this.empidlbl.AutoSize = true;
+            this.empidlbl.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.empidlbl.Location = new System.Drawing.Point(146, 89);
+            this.empidlbl.Name = "empidlbl";
+            this.empidlbl.Size = new System.Drawing.Size(64, 13);
+            this.empidlbl.TabIndex = 25;
+            this.empidlbl.Text = "EmployeeID";
+            this.empidlbl.Visible = false;
             // 
             // label10
             // 
@@ -186,120 +302,6 @@ namespace FinalProject
             this.label1.TabIndex = 4;
             this.label1.Text = "Manage Employee";
             // 
-            // empphonelbl
-            // 
-            this.empphonelbl.AutoSize = true;
-            this.empphonelbl.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.empphonelbl.Location = new System.Drawing.Point(148, 238);
-            this.empphonelbl.Name = "empphonelbl";
-            this.empphonelbl.Size = new System.Drawing.Size(87, 13);
-            this.empphonelbl.TabIndex = 28;
-            this.empphonelbl.Text = "Employee Phone";
-            this.empphonelbl.Visible = false;
-            // 
-            // empposlbl
-            // 
-            this.empposlbl.AutoSize = true;
-            this.empposlbl.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.empposlbl.Location = new System.Drawing.Point(148, 189);
-            this.empposlbl.Name = "empposlbl";
-            this.empposlbl.Size = new System.Drawing.Size(93, 13);
-            this.empposlbl.TabIndex = 27;
-            this.empposlbl.Text = "Employee Position";
-            this.empposlbl.Visible = false;
-            // 
-            // empaddlbl
-            // 
-            this.empaddlbl.AutoSize = true;
-            this.empaddlbl.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.empaddlbl.Location = new System.Drawing.Point(147, 135);
-            this.empaddlbl.Name = "empaddlbl";
-            this.empaddlbl.Size = new System.Drawing.Size(45, 13);
-            this.empaddlbl.TabIndex = 26;
-            this.empaddlbl.Text = "Address";
-            this.empaddlbl.Visible = false;
-            // 
-            // empidlbl
-            // 
-            this.empidlbl.AutoSize = true;
-            this.empidlbl.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.empidlbl.Location = new System.Drawing.Point(146, 89);
-            this.empidlbl.Name = "empidlbl";
-            this.empidlbl.Size = new System.Drawing.Size(64, 13);
-            this.empidlbl.TabIndex = 25;
-            this.empidlbl.Text = "EmployeeID";
-            this.empidlbl.Visible = false;
-            // 
-            // empdoblbl
-            // 
-            this.empdoblbl.AutoSize = true;
-            this.empdoblbl.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.empdoblbl.Location = new System.Drawing.Point(621, 189);
-            this.empdoblbl.Name = "empdoblbl";
-            this.empdoblbl.Size = new System.Drawing.Size(79, 13);
-            this.empdoblbl.TabIndex = 32;
-            this.empdoblbl.Text = "Employee DOB";
-            this.empdoblbl.Visible = false;
-            // 
-            // empgenlbl
-            // 
-            this.empgenlbl.AutoSize = true;
-            this.empgenlbl.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.empgenlbl.Location = new System.Drawing.Point(619, 135);
-            this.empgenlbl.Name = "empgenlbl";
-            this.empgenlbl.Size = new System.Drawing.Size(91, 13);
-            this.empgenlbl.TabIndex = 31;
-            this.empgenlbl.Text = "Employee Gender";
-            this.empgenlbl.Visible = false;
-            // 
-            // empedulbl
-            // 
-            this.empedulbl.AutoSize = true;
-            this.empedulbl.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.empedulbl.Location = new System.Drawing.Point(619, 226);
-            this.empedulbl.Name = "empedulbl";
-            this.empedulbl.Size = new System.Drawing.Size(104, 13);
-            this.empedulbl.TabIndex = 30;
-            this.empedulbl.Text = "Employee Education";
-            this.empedulbl.Visible = false;
-            // 
-            // empnamelbl
-            // 
-            this.empnamelbl.AutoSize = true;
-            this.empnamelbl.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.empnamelbl.Location = new System.Drawing.Point(619, 89);
-            this.empnamelbl.Name = "empnamelbl";
-            this.empnamelbl.Size = new System.Drawing.Size(81, 13);
-            this.empnamelbl.TabIndex = 29;
-            this.empnamelbl.Text = "EmployeeName";
-            this.empnamelbl.Visible = false;
-            // 
-            // empidTb
-            // 
-            this.empidTb.Location = new System.Drawing.Point(315, 34);
-            this.empidTb.Name = "empidTb";
-            this.empidTb.Size = new System.Drawing.Size(100, 20);
-            this.empidTb.TabIndex = 34;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(245, 37);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 13);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "EmployeeID";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(437, 34);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 35;
-            this.button5.Text = "Refresh";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // ViewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,5 +349,6 @@ namespace FinalProject
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox empidTb;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Timer timer1;
     }
 }
