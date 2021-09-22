@@ -135,11 +135,11 @@ namespace FinalProject
             duration++;// incrementam durata pt timer
             TimeSpan t = TimeSpan.FromSeconds(duration);// ne folosim de constructorul timespan pt formatul de h/m/s
 
-            string answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s",
+            string answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s",//salvam in variabila locala answer formatul 
                             t.Hours,
                             t.Minutes,
                             t.Seconds);
-            CheckInTb.Text = answer.ToString();//salvam in variabila locala answer formatul 
+            CheckInTb.Text = answer.ToString();
    
         }
 
